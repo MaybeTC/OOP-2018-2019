@@ -23,12 +23,247 @@ Resources
 - Week 12 Assignment Submission - 30%
 - End of Year exam - 50%
 
+# Week 5 - Classes & ArrayLists
+
+- [2016 Lab test](https://github.com/skooter500/OOP-LabTest1-2016)
+
+A video from Monday's class:
+
+[![YouTube](http://img.youtube.com/vi/bkLtktd7yCk/0.jpg)](https://www.youtube.com/watch?v=bkLtktd7yCk)
+
+## Lab 5 
+## Learning Outcomes
+- Learn how to fork a git repository
+- Learn how to use the Processing map function
+- Learn how to iterate over an ArrayList
+- Use accessor methods
+
+In todays lab we will plot the elements from the ArrayList of Star objects to the screen
+
+Firstly! If you havent already, fork the repository for the course to your own git repository. To do this, login to github, find my repositoy and hit the fork button. Now you have a personal copy of the repository stored in your github account that you can commit to and also keep updated from my repository.
+
+Clone your fork by typing:
+
+```
+git clone URL_TO_YOUR_REPO
+```
+
+Replace URL_TO_YOUR_REPO with the URL to your repo. It will be something like
+
+```
+http://github.com/JimKirkStudent/OOP-2018-2019
+```
+
+Check to make sure the remotes are set correctly by typing:
+
+```
+cd OOP-2018-2019
+git remote -v
+```
+
+You should see something like this:
+
+```
+origin        http://github.com/JimKirkStudent/OOP-2018-2019 (fetch)
+origin        http://github.com/JimKirkStudent/OOP-2018-2019 (push)
+upstream  http://github.com/skooter500/OOP-2018-2019 (fetch)
+upstream  http://github.com/skooter500/OOP-2018-2019 (push)
+```
+
+*origin* should alias your repository and *upstream* should alias my repository. You might need to add the upstream if you just did the fork and clone: 
+
+```
+git remote add upstream THE_URL
+```
+
+You can also modify an alias by typing:
+
+```
+git remote set-url origin THE_URL
+```
+
+Where origin in the above is the alias you want to update. You can update the upstream alias in a similar manner.
+
+Let's keep the master branch clean and never commit code on it. Instead, create and push branches for your work. 
+
+You can pull my changes into your master branch by typing:
+
+```
+git checkout master
+git pull upstream master
+```
+
+This checks out your master branch if it is not already checked out and then pulls from my upstream branch into your local master branch. Commit and push your changes:
+
+```
+git add .
+git commit -m "message"
+git push
+```
+
+Ok! If you want a refresher on what we did in Monday's class, watch the video above.
+
+The goal of today's lab is to plot the dataset we loaded into the ArrayList. Make sure you study the code from Monday before you move on. [Here is some more documentation on the ArrayList you can read](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html).
+
+Basically, to add an element use:
+
+```Java
+Star s = new Star();
+al.add(s);
+```
+
+To retrieve an element use:
+
+```Java
+Star s = al.get(i);
+```
+
+Or iterate over the ArrayList using:
+
+```Java
+for(Star s:stars)
+{
+	...
+	...
+}
+```
+
+Here is what the finished program should look like:
+
+[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+
+- Create a branch in your forked repository for your code today
+- read about the processing [map](https://processing.org/reference/map_.html) function. It's super useful.
+- Write a method in the StarMap class called ```drawGrid``` that draws the grid lines and the numbers along the grid. Use the map function!
+- Write a method called ```drawStars``` that plots the stars onto the grid, using the *xG* and *yG* fields in the star to map onto the grid. Use the accessor methods on the Star objects. 
+- Draw a yellow cross at the center of the star and a circle of diameter *absMag* field of the star. To do this you will have to iterate over the ArrayList of Star's 
+- Use the text method to print the name of the star. You can use the textAlign method to align the text. Look these up in the Processing reference if you need.
+
+Advanced!
+
+In the video, you can click on a start and then click on a second star to print the distance between them. See if you can implement this!
+
+# Week 4 - Arrays
+- [Arrays](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html)
+
+Check out [Arrays.java](https://github.com/skooter500/OOP-2018-2019/blob/master/java/src/ie/dit/Arrays.java) for the program we wrote in the class today
+
+## Lab
+
+### Learning Outcomes
+- Know to to declare and assign values to an array
+- Know how to iterate over an array
+- Practice problem solving with arrays
+
+Clone the repo for the course if you need it or switch to the master branch and pull the changes to get the Arrays example. Create a new branch for your work today called lab4
+
+### Task 1
+
+Modify the class Arrays.java to draw this trend line graph. You should probably add a method to do this and call it from draw()
+
+![Sketch](images/p7.png)
+
+- You might find the following Processing methods useful:
+  - [line](https://processing.org/reference/line_.html)
+  - [The Processing map method](https://processing.org/reference/map_.html)
+  - [text](https://processing.org/reference/text_.html) - Prints text to the screen at x and y coordinates
+  - [textAlign](https://processing.org/reference/textAlign_.html)
+
+### Task 2
+
+These two arrays give the frequencies of music notes and the corresponding note name in a notation called ABC notation. The names of music notes are called "spellings".
+
+```Java
+float[] frequencies = {293.66f, 329.63f, 369.99f, 392.00f, 440.00f, 493.88f, 554.37f, 587.33f
+			, 659.25f, 739.99f, 783.99f, 880.00f, 987.77f, 1108.73f, 1174.66f};
+String[] spellings = {"D,", "E,", "F,", "G,", "A,", "B,", "C", "D", "E", "F", "G", "A", "B","c", "d", "e", "f", "g", "a", "b", "c'", "d'", "e'", "f'", "g'", "a'", "b'", "c''", "d''"};
+```
+
+-  Write a class called PitchSpeller that has the above 2 arrays as fields. It should have a method ```public String spell(float frequency)``` that takes a frequency as a parameter and returns the spelling which is *closest* to that frequency. Test your solution by adding code to the main method. For example:
+
+```Java
+PitchSpeller ps = new PitchSpeller();
+System.out.println(ps.spell(330));
+System.out.println(ps.spell(420));
+System.out.println(ps.spell(1980));
+```
+
+Should print:
+
+```
+E,
+A,
+b
+```
+
+You can use the ```Math.abs``` method in your solution to get the absolute value of a number.
+
 # Week 3 - Using Loops in Java
+- [For loop](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html)
+- [While loop](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html)
+- [Foreach loop](https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html)
+
+Check out [Loops.java](https://github.com/skooter500/OOP-2018-2019/blob/master/java/src/ie/dit/Loops.java) in the repo for some examples
+
+## Lab
+
+### Learning Outcomes
+- Know how to write a for loop
+- Know how to write a while loop
+- Know when to use either type of loop
+- Practice computational thinking
+
+Clone/pull the repository for the course as you need. If you are cloning a new repository, don't forget to create the bin folder inside the java folder.
+
+Create a branch for your work today:
+
+```b
+cd OOP-2018-2019
+git checkout -b lab3
+```
+You can add your code to the Loops class.
+
+To set colors, you can use the methods:
+
+```
+stroke
+fill
+background
+```
+
+These are methods on the PApplet class that take either one parameter (a greyscale value) or three parameters (RGB). Another way of generating colors is by using the HSB colorspace. HSB stands for Hue, Saturation and Brightness. In Processing, these values go between 0-255. Hue is the color, saturation is the amount of grey and brightness is the brightness. It is much easier to generate interesting colors procedurally using HSB colorspace. To use HSB colorspace, call:
+
+```
+colorMode(HSB);
+```
+
+In the setup method.
+
+Ok here are some patterns you can generate using loops. I suggest you modify the Loops class and add a *seperate method* to generate each of the patterns so you can keep your code modular. Don't forget to call the methods you write from ```draw()```. Also you can call colorMode, stroke and fill in each method you write as appropriate for the problem you are trying to solve.
+
+![](https://github.com/skooter500/GP-2018-2019/blob/master/images/p19.png)
+
+![](https://github.com/skooter500/GP-2018-2019/blob/master/images/p18.png)
+
+![](https://github.com/skooter500/GP-2018-2019/blob/master/images/p31.png)
+
+![](https://github.com/skooter500/GP-2018-2019/raw/master/images/p33.png)
+
+These next two require nested loops...
+
+![](https://github.com/skooter500/GP-2018-2019/raw/master/images/p32.png)
+
+![](https://github.com/skooter500/GP-2018-2019/raw/master/images/p23.png)
+
+for loops are probably a better choice for most of these, but you should try writing one or two of them using while loops for practice:
 
 # Week 2 - Using Variables in Java, HelloProcessing example
 
 - Check out the HelloProcessing class in the repo
 - We drew the all seeing eye using the Processing drawing methods
+
+![](https://github.com/skooter500/GP-2016-2017/blob/master/images/p1.2.png?raw=true)
+
 
 ## Learning Outcomes
 - Practice drawing stuff and working out co-ordinates
