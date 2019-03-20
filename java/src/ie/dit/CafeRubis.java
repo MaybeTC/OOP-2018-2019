@@ -1,8 +1,11 @@
 package ie.dit;
 
+import java.util.ArrayList;
 import processing.core.PApplet;
+import processing.data.Table;
+import processing.data.TableRow;
 
-public class CafePublis extends PApplet
+public class CafeRubis extends PApplet
 {
     ArrayList<Product> products = new ArrayList<Product>();
     public void setting()
@@ -25,7 +28,7 @@ public class CafePublis extends PApplet
     {
         int which = -1;
 
-        (mouseY
+        //(mouseY
         which = (int)((mouseY - border)/(buttonHeight + gap));
 
         if(which != -1)

@@ -1,6 +1,6 @@
 package ie.dit;
 
-import processing.data
+import processing.data.*;
 
 public class Product
 {

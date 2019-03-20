@@ -15,23 +15,6 @@ public class Main
         processing.core.PApplet.runSketch( a, new BugZap());
 	}
 
-<<<<<<< HEAD
-	public void Face()
-	{
-		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new Face());
-	}
-	
-	public void Array()
-	{
-		String[] a = {"MAIN"};
-		processing.core.PApplet.runSketch( a, new Array());
-	}
-	public static void main(String[] args)
-	{
-		Main main = new Main();
-		main.Array();			
-=======
 	public void loops()
 	{
 		String[] a = {"MAIN"};
@@ -57,6 +40,5 @@ public class Main
 	{
 		Main main = new Main();
 		main.starMap();			
->>>>>>> d85640236ecd5b7cc0c4b1632cfc8cc97e76eb0c
 	}
 }
