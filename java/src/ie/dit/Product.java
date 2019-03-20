@@ -18,7 +18,7 @@ public class Product
         return name + "\t" + price;
     }
 
-    public Product(TableRow tr);
+    public Product(TableRow tr)
     {
         // Constructor chaining
         this(tr.getString("Name"), tr.getFloat("Price"));
