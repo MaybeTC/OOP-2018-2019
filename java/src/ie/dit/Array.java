@@ -34,7 +34,7 @@ public class Array extends PApplet
 
         for(float f:rainFall)//For each loop
         {
-            system.out.println(f);
+            System.out.println(f);
         }
         float nMax = 0;
         float nMin = 0;
