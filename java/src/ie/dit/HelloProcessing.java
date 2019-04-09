@@ -27,12 +27,12 @@ public class HelloProcessing extends PApplet
 	*/
 
 	int x = 0; // 4 bytes
-	int xx = 2;
+	/*int xx = 2;
 	float f = 0.0f; // 4 bytes
 	char c = 'h'; // Unicode
 	String s = "Hello";
 	boolean b = (1 == 0);
-	double d = 0; // 8 bytes
+	double d = 0; // 8 bytes*/
 
 	public void draw()
 	{	
@@ -42,5 +42,17 @@ public class HelloProcessing extends PApplet
 		fill(255);
 		ellipse(x, mouseY, 50, 50);		
 		x ++;
+		/*clear();
+		fill(255);
+		textSize(030);
+	
+		char[] myChars = {
+		'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', 'n', ' ', 
+		'a', 'r', 'r', 'a', 'y', ' ', 'o', 'f', ' '
+		};
+		text(myChars, 0, myChars.length, 20, 50);
+		
+		char[] fromStr = "CRAZY characters!".toCharArray();
+		text(fromStr, 6, fromStr.length, 20, 90);*/
 	}
 }

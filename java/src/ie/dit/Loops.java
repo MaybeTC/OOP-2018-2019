@@ -31,7 +31,7 @@ public class Loops extends PApplet
 		triangle(10, 10, 100, 90, 200, 200); // vertices	
 	}	
 	*/
-
+/*
 	int x = 0; // 4 bytes
 	int xx = 2;
 	float f = 0.0f; // 4 bytes
@@ -39,8 +39,8 @@ public class Loops extends PApplet
 	String s = "Hello";
 	boolean b = (1 == 0);
 	double d = 0; // 8 bytes
-
-	public void drawFace(float x, float y, float w)
+*/
+	/*public void drawFace(float x, float y, float w)
 	{
 		ellipse(x, y, w, w);
 		ellipse(x - 10, y - 10, 10, 10);
@@ -50,7 +50,7 @@ public class Loops extends PApplet
 		line(x - 10, y + 20, x - 15, y + 15);
 		line(x + 10, y + 20, x + 15, y + 15);		
 	}
-
+*/
 
 
 	float dx, dy;
@@ -128,6 +128,21 @@ public class Loops extends PApplet
 		}
 	}
 
+	void problem3()
+	{
+		colorMode(HSB);
+		noStroke();		
+
+		float numBoxes = 10;
+		float colorGap = 255 / numBoxes;
+		float gap = width / numBoxes;
+		for(int box = 0 ; box < numBoxes ; box ++)
+		{
+			fill(colorGap * box, 255, 255);
+			rect(box * gap, 0, gap, height);
+		}
+	}
+
 	void problem4()
 	{
 		colorMode(HSB);
@@ -144,21 +159,6 @@ public class Loops extends PApplet
 			//x = map(i, 0, numCircles, radius, width + radius);
 			fill(i * colorgap, 255, 255);
 			ellipse(x, height * 0.4f, diameter, diameter);
-		}
-	}
-
-	void problem3()
-	{
-		colorMode(HSB);
-		noStroke();		
-
-		float numBoxes = 10;
-		float colorGap = 255 / numBoxes;
-		float gap = width / numBoxes;
-		for(int box = 0 ; box < numBoxes ; box ++)
-		{
-			fill(colorGap * box, 255, 255);
-			rect(box * gap, 0, gap, height);
 		}
 	}
 
@@ -230,8 +230,8 @@ public class Loops extends PApplet
 		//problem2();
 		//problem3();
 		//problem4();
-		problem5();
-		//problem6();
+		//problem5();
+		problem6();
 	}
 
 }

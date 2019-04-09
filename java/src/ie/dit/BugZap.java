@@ -56,7 +56,7 @@ public class BugZap extends PApplet
 		float saucerHeight = bugWidth * 0.7f;
 		line(x, y - saucerHeight, x - halfBugWidth, y);
 		line(x, y - saucerHeight, x +  halfBugWidth, y);		
-		line(x - halfBugWidth, y, x - halfBugWidth, y);
+		//line(x - halfBugWidth, y, x - halfBugWidth, y);
 		line(x - halfBugWidth, y, x + halfBugWidth, y);
 		float feet = bugWidth * 0.1f;
 		line(x - feet, y, x - halfBugWidth, y + halfBugWidth);
@@ -115,17 +115,17 @@ public class BugZap extends PApplet
 
 	void moveBug()
 	{
-		if ((frameCount % 60) == 0)
+		if ((frameCount % 10) == 0)
 		{
 			bugX += random(-5, +5);
 			if (bugX < halfBugWidth )
 			{
-			  bugX = 0;
+			  bugX += 10;
 			}
 			
 			if (bugX + halfBugWidth > width)
 			{
-			  bugX = width - halfBugWidth;
+			  bugX += -10;
 			}
 			bugY ++;
 		}

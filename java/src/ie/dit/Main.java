@@ -61,7 +61,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
-
+		/*
 		PVector a = new PVector(0, 5);
 		PVector b = new PVector(10, -2);
 		PVector c = new PVector();
@@ -72,11 +72,11 @@ public class Main
 		c = PVector.add(a, b);
 		// static method call, on the class not the instance
 		c.normalize();
-		c.mag(); 
+		c.mag(); */
 
 		
 		Main main = new Main();
-		main.yasc();		
+		main.arrays();		
 		
 		
 	}
